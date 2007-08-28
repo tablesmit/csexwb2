@@ -1,3 +1,4 @@
+#labels PropertiesMethodsEvents
 ==Properties==
 
  * WBDOCDOWNLOADCTLFLAG - get set - DOC_DOWNLOAD_CONTROL_FLAGS 
