@@ -1,0 +1,171 @@
+
+28 Aug 2007 - Version (1.0.0.5)
+
+Properties:
+MainDocumentFullyLoaded - returns whether the top level document has fully loaded.
+
+BUG Fixs:
+Placing the control on a panel in desgin time and closing the designer crashed VS IDE.
+
+26 Aug 2007 - version (1.0.0.4)
+
+Interfaces:
+    IAsyncMoniker - added to LoadHTMLMoniker to resolve relative URLs properly and not as about:blank
+    IHostDialogHelper - to display a trusted HTML model dialog without the added title of ( - Internet Explorer...)
+    IHTMLCaret
+    ILineInfo
+    IHTMLEditServices
+    IHTMLEditServices2
+    IHTMLEditDesigner
+    IMarkupContainer
+    IHighlightRenderingServices
+    IMarkupPointer
+    IMarkupServices
+    IDisplayPointer
+    IDisplayServices
+    ISegment
+    ISegmentList
+    ISegmentListIterator
+    IHighlightSegment
+    IElementSegment
+    ISelectionServicesListener
+    ISelectionServices
+    IHTMLRenderStyle
+    IHTMLPainter
+    IHTMLPaintSite
+    IOmNavigator
+    IHTMLEditHost
+    IHTMLWindow3
+    IHTMLWindow4
+    IHTMLPopup - to display HTML tooltips
+
+Interfaces + methods to handle single Webbrowser history session based on ITravelLogxxx interfaces:
+    ITravelLogEntry
+    ITravelLogStg
+    IEnumTravelLogEntry
+
+    GetTravelLogCount
+    GetTraveLogEntries
+    AddTravelLogEntry
+    RemoveTravelLogEntries
+    RemoveTravelLogEntry
+Methods:
+    AddUrlToTrustedZone - Attempts to add a given url to internet trusted zone
+    UnicodeToHTMLEncoding - Attempts to convert UNICODE chars to their numeric values
+    to be used with LoadHtmlIntoBrowser methods. sample of output &#1581;
+    
+    ClearSessionCookies - Attempts to clear session cookies
+    UserAgnet - attempts to retreive IE useragnet
+    AutomationTask_PerformMultiSelectListItems
+    AutomationTask_SimulateKeyStroke
+    AutomationTask_NamedLinkScrollIntoView - Attempts to scroll into view a link given it's name or id
+    GetOpticalZoomRange - IE7
+    SetOpticalZoomRange - IE7
+    Ability to catch mouse back and foreard buttons via IEServerWindow class. Contributed by logan1337.
+
+Events:
+    To relay SnapRect calls of IHTMLEditHost interface added to csEXWB class. Used when designmode = on
+    HTMLEditHostSnapRectEventHandler
+    HTMLEditHostSnapRectEvent
+
+Misc:
+    frmWindowExternal to demonstrate communication between a page and this control
+      using ObjectForScripting property and javascript window.external
+    frmAutomation to demonstrate automation tasks such as selecting a list item,...
+    WindowEnumerator class and frmHTMLDialogHandler form to demonstrate how to intercept and monitor a HTML dialog launched using showModelessDialog() and showModalDialog() methods
+    HTMLEditHelper - added Underline(IHTMLElement) + Underline(int wordindex, int wordlen) methods.
+    Added popup handling to frmPopup.
+    frmHTMLParser to demonstrate Using HTMLParser (MSHTML) as a UI-less HTML parser
+    Added a FileSize parameter to FileDownloadExEventArgs event arguments.
+
+BUG FIXS:
+    PerformAutomationTask can perform searches based on name or id. And for htmloptionelements, either value or text
+    The doc2.body object is null when Clear() is called on a new instance of the control.
+    Undo, redo action in frmHTMLEditor was fixed
+    WinExternal class - added ComVisibleAttribute(true) and security permission declarations to have it recognized as a valid object
+    Setting FileDownloadDirectory property in form_load as this property, if not set, will reflect the file download directory of my pc.
+    execScript method - Was checking for the length of wrong parameter
+    AddThisIEServerHwndToComLib - Now it sets the IEServerHWND at every call.
+    While attempting to download attachements, Filename was being reported as GetAttachment.aspx (hotmail) in FileDownloadExStart event.
+
+ 05 June 2007 - version (1.0.0.3)
+
+ Additions:
+    Added an overload for public object InvokeScript(IWebBrowser2 wb, string ScriptName, object[] Data)
+    Added AutomationTask_PerformEnterDataTextArea method to automate text entry into a TextArea element
+    Added AutomationTask_PerformSubmitForm method to automate submission of a form
+
+ BUG_FIXS:
+    IDocHostShowUI.ShowMessage return value was incorrect
+
+ 25 May 2007 - version (1.0.0.2)
+ This is a big update, as it introduces many new functionalities and possibilities
+
+ ADDITIONS:
+  Control:
+    AutomationTask_PerformClickButton - Performs a click on a Button element with given name
+    AutomationTask_PerformClickLink - Performs a click on a Link element with given name
+    AutomationTask_PerformEnterData - Enters a given string into an input element with given name
+    AutomationTask_PerformSelectList - Selects a list item element with given list item value
+    AutomationTask_PerformSelectRadio - Selects a radio or checkbox element with given radio or checkbox name
+    GetElementsByName - Wrapper for IHTMLDocument3::getElementsByName
+    Return values to methods such as GoBack, GoForward,... to indicate failure or success
+    IHTMLElementEvents2, IHTMLDataTransfer Interfaces and cHTMLElementEvenets2 class to handle HTMLElementEvents2 of an HTMLElement. Used in frmHTMLEditor to demonstarte handling of internal drag drop of elements.
+    An assembly file to mark the control as COM visible
+    ObjectForScripting property. Allows javascript functions in an HTML page to call methods and properties of a an instance class passed to this property. Same as ObjectForScripting of C# Webbrowser wrapper control. An example of how to use this property has been provided in WinExternal class of frmMain
+    SetAllowHTMLDialogs and GetAllowHTMLDialogs methods - Allow or disallow HTML dialogs launched using showModelessDialog() and showModalDialog() methods using CBT Window Hook.
+    DocumentTitle property
+    DocumentSource property
+    DownloadImages property
+    DownloadSounds property
+    DownloadVideo property
+    DownloadActiveX property
+    DownloadJava property
+    DownloadFrames property
+    DownloadScripts property
+    Border3DEnabled property
+    ScrollBarsEnabled property
+    IProtectFocus interface - IE7 + Vista - Queries for permission to grab the focus when loading the page or when a script attempts to focus an element
+    AllowFocusChange event to notify client when focus is being changed
+    APP (Asynchronous pluggable protocols) OnBeginTransaction and OnResponse events via a COM assembly. This added functionality enables the clients to view all the request and responed headers of webbrowser control.
+    IDownloadManager interface via a COM assembly. If used, a client application can be notified via FileDownloadExXXXX events of a filedownload, replacing the default MSHTML download mechanism
+    Moved all HTML editing functions to HTMLEditHelper class
+    Added some paint related styles to constructor to avoid background painting
+    Added an overload to OleCommandExec(bool bTopLevel, MSHTML_COMMAND_IDS CmdID, object pvaIn) which accepts a parameter
+    IHTMLOMWindowServices interface - XP sp2 - Enables applications that are hosting the WebBrowser Control to intercept the window object calls for manipulating the host window coordinates from Dynamic HTML (DHTML) script
+    HTMLOMWindowServices_moveTo , HTMLOMWindowServices_moveBy, HTMLOMWindowServices_resizeTo, HTMLOMWindowServices_resizeBy events
+  Demo App:
+    Edit, Source, and Preview functionalities to frmHTMLEditor via a tab control
+    A CustomComboBox and ToolStripCustomComboBox to handle display of colors and fonts
+    A simple RichTextBox control with HTML syntax highlighting for viewing the source of the HTML document used in frmHTMLEditor
+    frmTableCellProp, to set/get a table cell properties in frmHTMLEditor
+    A tree containning most common HTML tags to be used in conjunction with the RichTextBox source editor in frmHTMLEditor
+    A custom SplitContainer based control, used in frmHTMLEditor
+    A ToolStripDropDown Html color selector.
+    frmFileDownload, to manage file downloads visual status (simple)
+    Removed frmThumbs. Moved thumb handling to main form via a toolstrip
+ BUG FIXS:
+  Methods:
+    GetSource(IWebBrowser2 thisBrowser), added support for UTF8 and UNICODE pages
+    Navigate(string URL, BrowserNavConstants Flags), using BrowserNavConstants.navOpenInNewWindow was loading
+    URL into the current control. Now it opens a new IE window
+    GetSource(bool bTopLevel), changed return value from innerHTML to outerHTML
+  Events:
+    NavigationError event
+  Interfaces:
+    IHTMLDocument2.write method def, psarray param changed from object[] to object
+    IHTMLDocument2.writeln method def, psarray param changed from object[] to object
+
+
+ 19 Feb 2007 - Version 1.0.0.1:
+  BUG FIXS:
+   Methods:
+    IDocHostShowUI.ShowMessage
+    DWebBrowserEvents2.WindowClosing
+  ADDITIONS:
+   Methods:
+    DISPATCH_WindowClosing
+    NavToBlank
+    LoadHtmlIntoBrowser (Overloaded)
+
+ 17 Jan 2007 - Version 1.0.0.0: Initial Release
