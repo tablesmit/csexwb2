@@ -1,6 +1,4 @@
 #labels Phase-Deploy,Featured
-==Control Requirements==
-
  * .NET 2.0 runtime
  * csExWBDLMan.dll registeration
 
