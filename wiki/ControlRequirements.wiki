@@ -8,7 +8,7 @@ csExWBDLMan is written in VC++ 6.0 using ATL 3.0. It is compiled with minimum de
 
 The library is used to allow the client to employ the IDownloadManager implementation of csExWBDLMan library. In addition, the library implements the PassthroughAPP package by Igor Tandetnik, which enables the client to intercept all HTTP and HTTPS request and responses. The last functionality offered by the library is the ability to set any of the available windows hooks with the option to cancel a call. This functionality is used to stop dialogs launched using the showModelessDialog() and showModalDialog() methods. The library can be used in any other project that needs to set a global windows hook or view HTTP and HTTPS headers, as long as a valid window handle is supplied. 
 
-Before opening the solution or running the demo, you need to register this library
+*Before opening the solution or running the demo, you need to register this library*
 
  * Copy csExWBDLMan.dll located in the csExWB\COM_Component_Source_Binaries\ReleaseMinDependency sub folder to your system directory
  * Register csExWBDLMan.dll using regsvr32.exe 
