@@ -1,0 +1,20 @@
+#labels Featured,Phase-Deploy
+#Using the control in a x86 environment
+
+Typical error message recieved after registering the COM component and attempting to run the DemoApp:
+
+Retrieving the COM class factory for component 
+with CLSID {A1FE23EF-03EF-4759-B021-668443C37A24} failed due to the 
+following error: 80040154 (Class not registered)
+
+*ROOTCAUSE*
+
+The VSS Interop is a managed assembly using 32-bit Framework and the dll contains a 
+32-bit COM object. If you run this COM dll in 64 bit environment, you will get the 
+error message.
+
+*WORKAROUND*
+
+The possible workaround is modify your project's platform from 'Any CPU' to 'X86' 
+(in Project's Properties, Build/Platform's Target)
+
