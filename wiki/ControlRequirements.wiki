@@ -1,6 +1,7 @@
 #labels Phase-Deploy,Featured
  * .NET 2.0 runtime
  * csExWBDLMan.dll registeration
+ * Registeration-Free COM
 
 ==csExWBDLMan COM library==
 
@@ -19,4 +20,27 @@ Example: Assuming the system dir path is C:\windows\system32\
 regsvr32.exe C:\windows\system32\csExWBDLMan.dll
 }}}
 
+*Registeration-Free COM*
 
+Using "Isolated" property, we can eliminate the need to register csExWBDLMan component.
+Please note that the COM component still requires registeration in the developement machine.
+
+*Limitation: Requires XP*
+
+In Soulution Explorer expand csEXWB project, under References locate CSEXWBDLMANLib entry, select it. Under properties find and set the Isolated property to true.
+Now rebuild the control and DemoApp (Use Release), exit the IDE, unregister the COM component with a command such as;
+Assuming the system dir path is C:\windows\system32\
+{{{
+regsvr32.exe /U C:\windows\system32\csExWBDLMan.dll
+}}}
+Now run the DemoApp.exe (Release version).
+
+For further information, please refer to:
+
+[http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx Escape DLL Hell Simplify App Deployment with ClickOnce and Registration-Free COM]
+
+[http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx?loc=&side=true#a The Limitations of Reg-Free COM]
+
+ 
+ 
+ 
