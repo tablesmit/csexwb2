@@ -25,7 +25,7 @@ regsvr32.exe C:\windows\system32\csExWBDLMan.dll
 Using "Isolated" property, we can eliminate the need to register csExWBDLMan component.
 Please note that the COM component still requires registeration in the developement machine.
 
-*Limitation: Requires XP*
+*Limitation: Requires XP and up*
 
 In Soulution Explorer expand csEXWB project, under References locate CSEXWBDLMANLib entry, select it. Under properties find and set the Isolated property to true.
 Now rebuild the control and DemoApp (Use Release), exit the IDE, unregister the COM component with a command such as;
