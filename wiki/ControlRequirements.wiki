@@ -54,6 +54,8 @@ Now run the DemoApp.exe (Release version).
 
 For further information, please refer to:
 
+[http://msdn2.microsoft.com/en-us/library/fh1h056h(VS.80).aspx Registration-Free COM Interop]
+
 [http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx Escape DLL Hell Simplify App Deployment with ClickOnce and Registration-Free COM]
 
 [http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx?loc=&side=true#a The Limitations of Reg-Free COM]
