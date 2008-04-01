@@ -20,6 +20,8 @@ Example: Assuming the system dir path is C:\windows\system32\
 regsvr32.exe C:\windows\system32\ComUtilities.dll
 }}}
 
+To eliminate ComUtilities.dll dependencies on ATL8.dll, go to "Project->ComUtilities Properties". When "ComUtilities Property Page" is displayed, expand "Configuration Properties" node and select "General". In the right pane, change "Use of ATL" option to "Static Link to ATL" choice. Apply changes, and rebuild solution.
+
 ==csExWBDLMan COM library==
 
 csExWBDLMan is written in VC++ 6.0 using ATL 3.0. It is compiled with minimum dependencies, i.e. no MFC, std::, CString. To recompile, you need to Copy AuxCrt.cpp file from csExWB\COM_Component_Source_Binaries\AtlAux\Shared to the VC++6 ATL\Include\ directory.
