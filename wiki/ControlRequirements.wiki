@@ -6,7 +6,7 @@
 
 ==ComUtilities COM library==
 
-ComUtilities.dll is written in VC++ 8.0 (2005) using ATL 8.0 (ATL is not included in the Express edition) and is is statically linked to ATL. This control is a replacement for the csExWBDLMan.dll library which was written in VC++ 6.0 using ATL 3.0. In the future, any additional features will be added to this library.
+ComUtilities.dll is written in VC++ 8.0 (2005) using ATL 8.0 (ATL is not included in the Express edition) and is statically linked to ATL. This control is a replacement for the csExWBDLMan.dll library which was written in VC++ 6.0 using ATL 3.0. In the future, any additional features will be added to this library.
 
 *Before opening the solution or running the demo using ComUtilities.dll*
 
