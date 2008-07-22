@@ -1,8 +1,9 @@
 #labels Phase-Deploy,Featured
  * .NET 2.0 runtime
  * ComUtilities.dll registration
- * csExWBDLMan.dll registeration
+ * Click Once
  * Registeration-Free COM
+ * csExWBDLMan.dll registeration
 
 ==ComUtilities COM library==
 
@@ -22,26 +23,9 @@ regsvr32.exe C:\windows\system32\ComUtilities.dll
 
 To eliminate dependencies on ATL8.dll, go to "Project->ComUtilities Properties". When "ComUtilities Property Page" is displayed, expand "Configuration Properties" node and select "General". In the right pane, change "Use of ATL" option to "Static Link to ATL" choice. Apply changes, and rebuild solution. By default, all ComUtilities builds use "Static Link to ATL" choice.
 
-*Click Once*
+==Click Once==
 
 ComUtilities project properties is set to embed the manifest file withiin the output. This may cause problems when deployed using click once. To change this setting, go to "Project->ComUtilities Properties". When "ComUtilities Property Page" is displayed, expand "Configuration Properties" node, then expand "Manifest Tool" and select "Input and Output". In the right pane, change "Embed Manifest" option to No. Apply changes, and rebuild solution. 
-
-==csExWBDLMan COM library==
-
-csExWBDLMan is written in VC++ 6.0 using ATL 3.0. It is compiled with minimum dependencies, i.e. no MFC, std::, CString. To recompile, you need to Copy AuxCrt.cpp file from csExWB\COM_Component_Source_Binaries\AtlAux\Shared to the VC++6 ATL\Include\ directory.
-
-The library is used to allow the client to employ the IDownloadManager implementation of csExWBDLMan library. In addition, the library implements the PassthroughAPP package by Igor Tandetnik, which enables the client to intercept all HTTP and HTTPS request and responses. The last functionality offered by the library is the ability to set any of the available windows hooks with the option to cancel a call. This functionality is used to stop dialogs launched using the showModelessDialog() and showModalDialog() methods. The library can be used in any other project that needs to set a global windows hook or view HTTP and HTTPS headers, as long as a valid window handle is supplied. 
-
-*Before opening the solution or running the demo, you need to register this library*
-
- * Copy csExWBDLMan.dll located in the csExWB\COM_Component_Source_Binaries\ReleaseMinDependency sub folder to your system directory
- * Register csExWBDLMan.dll using regsvr32.exe 
- * Open the solution
-
-Example: Assuming the system dir path is C:\windows\system32\
-{{{
-regsvr32.exe C:\windows\system32\csExWBDLMan.dll
-}}}
 
 ==Registeration-Free COM==
 
@@ -66,6 +50,21 @@ For further information, please refer to:
 
 [http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx?loc=&side=true#a The Limitations of Reg-Free COM]
 
- 
+==csExWBDLMan COM library==
+
+csExWBDLMan is written in VC++ 6.0 using ATL 3.0. It is compiled with minimum dependencies, i.e. no MFC, std::, CString. To recompile, you need to Copy AuxCrt.cpp file from csExWB\COM_Component_Source_Binaries\AtlAux\Shared to the VC++6 ATL\Include\ directory.
+
+The library is used to allow the client to employ the IDownloadManager implementation of csExWBDLMan library. In addition, the library implements the PassthroughAPP package by Igor Tandetnik, which enables the client to intercept all HTTP and HTTPS request and responses. The last functionality offered by the library is the ability to set any of the available windows hooks with the option to cancel a call. This functionality is used to stop dialogs launched using the showModelessDialog() and showModalDialog() methods. The library can be used in any other project that needs to set a global windows hook or view HTTP and HTTPS headers, as long as a valid window handle is supplied. 
+
+*Before opening the solution or running the demo, you need to register this library*
+
+ * Copy csExWBDLMan.dll located in the csExWB\COM_Component_Source_Binaries\ReleaseMinDependency sub folder to your system directory
+ * Register csExWBDLMan.dll using regsvr32.exe 
+ * Open the solution
+
+Example: Assuming the system dir path is C:\windows\system32\
+{{{
+regsvr32.exe C:\windows\system32\csExWBDLMan.dll
+}}}
  
  
