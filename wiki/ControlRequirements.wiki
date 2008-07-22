@@ -1,6 +1,7 @@
 #labels Phase-Deploy,Featured
  * .NET 2.0 runtime
  * ComUtilities.dll registration
+ * Building ComUtilities in VS 2008
  * Click Once
  * Registeration-Free COM
  * csExWBDLMan.dll registeration
@@ -22,6 +23,16 @@ regsvr32.exe C:\windows\system32\ComUtilities.dll
 }}}
 
 To eliminate dependencies on ATL8.dll, go to "Project->ComUtilities Properties". When "ComUtilities Property Page" is displayed, expand "Configuration Properties" node and select "General". In the right pane, change "Use of ATL" option to "Static Link to ATL" choice. Apply changes, and rebuild solution. By default, all ComUtilities builds use "Static Link to ATL" choice.
+
+==Building ComUtilities in VS 2008==
+
+ # Remove IUri and IInternetProtocolEx interface definitions from ComUtilities.idl 
+ # In stdafx.h, change define _WIN32_IE 0x0600 to define _WIN32_IE 0x0700 
+ # Rebuild the project
+
+*Warning D9035*
+
+To remove warning D9035 : option 'Wp64' has been deprecated and will be removed in a future release. Go to Project menu->ComUtilities Properties, in the ComUtilities Proprty Pages, select the C/C++ node in the tree then in the right pane change "Detect 64-bit Portability Issues" to No.
 
 ==Click Once==
 
