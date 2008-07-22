@@ -31,7 +31,7 @@ Solution:
  # Choose the "Properties" menu item
  # Select the "Build" tab (left side)
  # In the "General" section set the "Platform target:" to "x86".
- # Save and clean/rebuild/redeploy.
+ # Save and clean/rebuild.
 
  # Rebuild ComUtilities with x64 (64-bit) support.
 
@@ -47,9 +47,7 @@ http://www.request-response.com/blog/PermaLink,guid,cf345d71-cdc7-46b9-8c1c-eb21
 
 The procedure is to:
 
- # Go to the Start Menu, and Navigate to the "Microsoft Visual Studio
-2008" folder, expand it and under the "Visual Studio Tools" folder, ran the
-"Visual Studio 2008 Command Prompt".
+ # Go to the Start Menu, and Navigate to the "Microsoft Visual Studio 2008" folder, expand it and under the "Visual Studio Tools" folder, ran the "Visual Studio 2008 Command Prompt".
  # In the command prompt, navigate to the folder where executable is located.
  # Run the command "corflags /32BIT+ EXEName.exe"
  # Run "corflags EXEName.exe" to verify that the "32BIT" flag was set to "1".
