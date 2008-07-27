@@ -3,7 +3,7 @@
  * ComUtilities.dll registration
  * Building ComUtilities in VS 2008
  * Click Once
- * Registeration-Free COM
+ * Registeration-free ComUtilities COM interop
  * csExWBDLMan.dll registeration
 
 ==ComUtilities COM library==
@@ -38,28 +38,7 @@ To remove warning D9035 : option 'Wp64' has been deprecated and will be removed 
 
 ComUtilities project properties is set to embed the manifest file withiin the output. This may cause problems when deployed using click once. To change this setting, go to "Project->ComUtilities Properties". When "ComUtilities Property Page" is displayed, expand "Configuration Properties" node, then expand "Manifest Tool" and select "Input and Output". In the right pane, change "Embed Manifest" option to No. Apply changes, and rebuild solution. 
 
-==Registeration-Free COM==
-
-Using "Isolated" property, we can eliminate the need to register csExWBDLMan component.
-Please note that the COM component still requires registeration in the developement machine.
-
-*Limitation: Requires XP and up*
-
-In Soulution Explorer expand csEXWB project, under References locate CSEXWBDLMANLib entry, select it. Under properties find and set the Isolated property to true.
-Now rebuild the control and DemoApp (Use Release), exit the IDE, unregister the COM component with a command such as;
-Assuming the system dir path is C:\windows\system32\
-{{{
-regsvr32.exe /U C:\windows\system32\csExWBDLMan.dll
-}}}
-Now run the DemoApp.exe (Release version).
-
-For further information, please refer to:
-
-[http://msdn2.microsoft.com/en-us/library/fh1h056h(VS.80).aspx Registration-Free COM Interop]
-
-[http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx Escape DLL Hell Simplify App Deployment with ClickOnce and Registration-Free COM]
-
-[http://msdn.microsoft.com/msdnmag/issues/05/04/regfreecom/default.aspx?loc=&side=true#a The Limitations of Reg-Free COM]
+==[http://groups.google.com/group/csexwb/web/registeration-free-comutilities-com-interop Registeration-free ComUtilities COM interop]==
 
 ==csExWBDLMan COM library==
 
